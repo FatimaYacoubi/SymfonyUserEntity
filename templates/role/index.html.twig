@@ -1,0 +1,46 @@
+{% extends ('baseback/base.html.twig') %}
+
+{% block body %}
+<!DOCTYPE html>
+
+<title>Role</title>
+
+
+     <div align="center"><h1>Role</h1>
+
+    <table class="table" align="center">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom role</th>
+                <th>Description</th>
+                <th>Tache role</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for role in roles %}
+            <tr>
+                <td>{{ role.id }}</td>
+                <td>{{ role.nomRole }}</td>
+                <td>{{ role.Description }}</td>
+     
+
+                                
+
+                <td>
+                    <a href="{{ path('role_show', {'id': role.id}) }}">show</a>
+                    <a href="{{ path('role_edit', {'id': role.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <a href="{{ path('role_new') }}">Create new</a>
+{% endblock %}

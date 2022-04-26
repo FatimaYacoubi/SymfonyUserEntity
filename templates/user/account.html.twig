@@ -1,0 +1,21 @@
+{% extends ('basefront/base.html.twig') %}
+{% block body %}
+
+<!DOCTYPE html>
+
+<title>New User</title>
+
+ <div align="center" class="container">
+
+<div class="card text-white bg-primary mb-3" style="max-width: 40rem; height: 100">
+<div class="card-body">
+    <h5 class="card-title">Add Account</h5>
+    <p class="card-text">Ajouter des informations.</p>
+ <h1>Create new User</h1>
+
+    {{ include('user/_form.html.twig') }}
+
+    <a href="{{ path('home') }}" class="btn btn-primary">Cancel</a>
+  </div> </div>
+</div>
+{% endblock %}

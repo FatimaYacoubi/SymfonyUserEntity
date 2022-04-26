@@ -1,0 +1,29 @@
+{% extends ('basefront/base.html.twig') %}
+{% block body %}
+
+<!DOCTYPE html>
+
+<title>User</title>
+<div align="center" class="container">
+
+    <h1>Votre Compte</h1>
+            {% for user in users %}
+
+
+<div class="card text-white bg-primary mb-3" style="max-width: 40rem; height: 100">
+<div class="card-body">
+    <h5 class="card-title">Informations Personelles</h5>
+    <p class="card-text">Prenom {{ user.prenomUtilisateur }}.</p>  
+      <p class="card-text">Name {{ user.nomUtilisateur }}.</p>
+          <p class="card-text">Adresse{{ user.adresseUtilisateur }}.</p>
+    <p class="card-text">Numero {{ user.NumeroUtilisateur }}.</p>
+    <p class="card-text">Mail {{ user.mailUtilisateur }}.</p>
+        <p class="card-text">Sudo {{ user.sudoUtilisateur }}.</p>
+                <p class="card-text">Password {{ user.password }}.</p>
+                                <p class="card-text">Date de naissance {{ user.DateNUtilisateur ? user.DateNUtilisateur|date('Y-m-d') : '' }}.</p>
+
+    <a href="{{ path('home') }}" class="btn btn-light">Browse</a>
+  </div> </div>
+</div>
+{% endfor %}
+{% endblock %}

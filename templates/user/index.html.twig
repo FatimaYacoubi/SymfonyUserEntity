@@ -1,0 +1,142 @@
+{% extends ('baseback/base.html.twig') %}
+{% block body %}
+
+<!DOCTYPE html>
+
+<title>User</title>
+
+
+<div class="sidebar-search">
+      <div class="input-group custom-search-form">
+          <input type="text" id="search" class="form-control" placeholder="Search...">
+      </div>
+      <!-- /input-group -->
+  </div>
+  <ul class="nav" id="side-menu">
+      <table>
+          <ul class="table" id="entitiesNav"  style="   
+					    display: table-row-group;"> </ul>
+                </table>
+  </ul>
+      
+    <div class="container-fluid py-4">
+          <div class="row">
+            <div class="col-12">
+              <div class="card mb-4">
+                <div class="card-header pb-0">
+                  <h6 align="center">Users table</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2 text-dark">
+                  <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0 text-dark" align="center">
+        <thead>
+            <tr>
+                <th class="text-uppercase text-dark font-weight-bolder opacity-7">Id</th>
+                <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Role</th>
+                 <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Expired</th>
+                <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Verified</th>
+                <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Nom</th>
+                <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Prenom</th>
+                <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Adresse</th>
+                <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Mail</th>
+                <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Sudo</th>
+                <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Mot de passe</th>
+                <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Etat du compte</th>
+                <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Numero</th>
+                <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Date de naissance</th>
+                <th class="text-uppercase text-secondary font-weight-bolder opacity-7">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                                <td>{{ user.getNomRole() }}</td>
+              <td>{% if user.isExpired ==0 %}
+                             <span class="badge badge-sm bg-gradient-danger">Not Blocked</span>
+
+                  {% else %}
+                             <span class="badge badge-sm bg-gradient-danger">Blocked</span>
+                          {% endif %}
+
+                 
+
+                 </td>
+                <td>{% if user.isVerified ==0 %}
+               <span class="badge badge-sm bg-gradient-warning">Account Verfied</span>
+                          {% else %}
+                          <span class="badge badge-sm bg-gradient-warning">Account Not Verfied</span>
+                          {% endif %}
+
+                 </td>
+                <td>{{ user.nomUtilisateur }}</td>
+                <td>{{ user.prenomUtilisateur }}</td>
+                <td>{{ user.adresseUtilisateur }}</td>
+                <td>{{ user.mailUtilisateur }}</td>
+                <td>{{ user.sudoUtilisateur }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.EtatCompte }}</td>
+                <td>{{ user.NumeroUtilisateur }}</td>
+                <td>{{ user.DateNUtilisateur ? user.DateNUtilisateur|date('Y-m-d') : '' }}</td>
+                <td>
+                    <button class="btn btn-outline-warning font-weight-bold"><a href="{{ path('user_show', {'id': user.id}) }}">show</a></button>
+                    <button class="btn btn-outline-warning font-weight-bold"><a href="{{ path('user_edit', {'id': user.id}) }}">edit</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+          </ul>
+
+        </tbody>
+    </table>
+<div align="center">
+    <a href="{{ path('user_new') }}">Create new</a>  </div>
+    <div class="navigation">
+</div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        var searchRequest = null;
+        $("#search").keyup(function() {
+            var minlength = 3;
+            var that = this;
+            var value = $(this).val();
+            var entitySelector = $("#entitiesNav").html('');
+            if (value.length >= minlength ) {
+                if (searchRequest != null)
+                    searchRequest.abort();
+                searchRequest = $.ajax({
+                    type: "GET",
+                    url: "{{ path('ajax_search') }}",
+                    data: {
+                        'q' : value
+                    },
+                    dataType: "text",
+                    success: function(msg){
+                        //we need to check if the value is the same
+                        if (value==$(that).val()) {
+                            var result = JSON.parse(msg);
+                            $.each(result, function(key, arr) {
+                                $.each(arr, function(id, value) {
+                                    if (key == 'User') {
+                                        if (id != 'error') {
+                                            entitySelector.append('<li><a href="/user/'+id+'">'+value+'</a></li>');
+                                        } else {
+                                            entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                        }
+                                    }
+                                });
+                            });
+                        }
+                     }
+                });
+            }
+        });
+    });
+
+</script>
+{% endblock %}

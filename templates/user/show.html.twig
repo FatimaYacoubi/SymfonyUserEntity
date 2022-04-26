@@ -1,0 +1,82 @@
+{% extends ('baseback/base.html.twig') %}
+{% block body %}
+
+<!DOCTYPE html>
+
+<title>User</title>
+                <div align="center">
+
+<div class="container-fluid py-4" align="center">
+          <div class="row">
+            <div class="col-6">
+              <div class="card mb-4">
+                <div class="card-header pb-0">
+                  <h6 align="center">Users table</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2 text-dark">
+                  <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0 text-dark" align="center">
+                <tbody>
+         <tr>
+                <th>Etat</th>
+                <td>{{ user.isVerified }}</td>
+            </tr>
+            <tr>
+                <th>Block status</th>
+                <td>{{ user.isExpired}}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>{{ user.getNomRole() }}</td>
+            </tr>
+           
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.nomUtilisateur }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ user.prenomUtilisateur }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ user.adresseUtilisateur }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ user.mailUtilisateur }}</td>
+            </tr>
+            <tr>
+                <th>Sudo</th>
+                <td>{{ user.sudoUtilisateur }}</td>
+            </tr>
+            <tr>
+                <th>Mdp</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Etat_Compte</th>
+                <td>{{ user.EtatCompte }}</td>
+            </tr>
+            <tr>
+                <th>Numero</th>
+                <td>{{ user.NumeroUtilisateur }}</td>
+            </tr>
+           
+            <tr>
+                <th>DateN</th>
+                <td>{{ user.DateNUtilisateur ? user.DateNUtilisateur|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table> 
+<div align="center">
+     <button class="btn btn-warning font-weight-bold"><a href="{{ path('user_index') }}">Back to list</a></button>
+
+     <button class="btn btn-warning font-weight-bold"><a href="{{ path('user_edit', {'id': user.id}) }}">Edit</a></button>
+</div></div></div></div></div></div></div>
+    {{ include('user/_delete_form.html.twig') }}
+{% endblock %}

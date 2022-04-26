@@ -1,0 +1,233 @@
+/* your styles go here */
+
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+.containerreclam {
+    min-height: 30vh;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.cardreclam {
+    height: 40px;
+    width: 270px;
+    background-color: #96cdef;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 15px;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s
+}
+
+.cardreclam:hover {
+    height: 390px
+}
+
+.formreclam h3 {
+    color: #6f42c1;
+    font-size: 19px;
+    font-weight: 900;
+    margin-bottom: 5px
+}
+
+.formreclam .fa-share-alt {
+    position: absolute;
+    right: 20px;
+    font-size: 20px;
+    top: 18px
+}
+
+.formreclam p {
+    font-size: 12px;
+    color: #000;
+    font-weight: 700;
+    margin-bottom: 9px
+}
+
+input[type='text'] {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 9px;
+    box-sizing: border-box;
+    outline: 0;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    font-size: 12px;
+    transition: all 0.5s
+}
+
+.widereclam {
+    width: 78% !important
+}
+
+.input-text {
+    position: relative
+}
+
+.input-text span {
+    position: absolute;
+    left: 9px;
+    font-size: 13px;
+    top: 20px;
+    transition: all 0.5s;
+    color: #6f42c1;
+}
+
+.input-text input:focus~span,
+.input-text input:valid~span {
+    top: -10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: green
+}
+
+.text-area {
+    position: relative;
+    margin-top: 7px
+}
+
+.text-area textarea {
+    width: 100%;
+    height: 70px;
+    outline: 0;
+    resize: none;
+    padding: 0 9px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: none;
+    transition: all 0.5s;
+    font-size: 12px
+}
+
+.text-area span {
+    position: absolute;
+    font-size: 14px;
+    left: 9px;
+    top: 1px;
+    transition: all 0.5s;
+    color: #6f42c1;
+}
+
+.text-area textarea:focus~span,
+.text-area textarea:valid~span {
+    position: absolute;
+    top: -18px;
+    font-size: 12px;
+    font-weight: 600
+}
+
+.buttonreclam {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.buttonreclam button {
+    position: absolute;
+    top: 20px;
+    height: 35px;
+    width: 120px;
+    border-radius: 7px;
+    border: none;
+    color: #fff;
+    background-color: #509ede;
+    transition: all 0.5s;
+    font-size: 12px
+}
+
+.buttonreclam:hover :hover {
+    background-color: #785770;
+    cursor: pointer
+}
+
+.lastreclam {
+    position: relative
+}
+
+.lastreclam .fa-phone {
+    position: absolute;
+    top: 71px;
+    transition: all 0.5s;
+    left: -40px;
+    font-size: 20px;
+    color: #6f42c1;
+}
+
+.cardreclam:hover .fa-phone {
+    position: absolute;
+    left: 10px
+}
+
+.lastreclam .fa-map-marker {
+    position: absolute;
+    top: 70px;
+    transition: all 0.5s;
+    left: -40px;
+    font-size: 20px;
+    color: #6f42c1;
+}
+
+.cardreclam:hover .fa-map-marker {
+    position: absolute;
+    left: 140px
+}
+
+.lastreclam :nth-child(2) {
+    position: absolute;
+    top: 70px;
+    font-size: 12px;
+    color: #6f42c1;
+    transition: all 0.5s;
+    left: 13px
+}
+
+.cardreclam:hover .last :nth-child(2) {
+    position: absolute;
+    left: 25px
+}
+
+.lastreclam :nth-child(4) {
+    position: absolute;
+    top: 70px;
+    font-size: 12px;
+    color: #6f42c1;
+    transition: all 0.5s;
+    left: 145px
+}
+
+.cardreclam:hover .last :nth-child(4) {
+    position: absolute;
+    left: 156px
+}
+
+.socialreclam {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: -60px;
+    top: 100px;
+    transition: all 0.7s;
+    padding: 15px
+}
+
+.socialshowreclam {
+    right: 15px !important
+}
+
+.socialreclam i {
+    margin: 10px 0px;
+    font-size: 25px;
+    transition: all 0.5s;
+    color: #6f42c1
+}

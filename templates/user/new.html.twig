@@ -1,0 +1,17 @@
+{% extends ('baseback/base.html.twig') %}
+{% block body %}
+
+<!DOCTYPE html>
+
+<title>New User</title>
+
+
+  <div align="center" class="container">
+      <h1>Create new User</h1>
+
+    {{ include('user/_form.html.twig') }}
+
+    <a href="{{ path('user_index') }}">back to list</a>
+        </div>
+
+{% endblock %}

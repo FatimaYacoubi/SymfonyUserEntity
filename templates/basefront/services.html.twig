@@ -1,0 +1,62 @@
+{% extends ('basefront/base.html.twig') %}
+
+{% block body %}
+    <section class="py-5" id="services">
+      <div class="container py-5">
+        <header class="mb-4 text-center mb-5">
+          <p class="text-serif mb-0 text-primary">Watch our offers online</p>
+          <h2 class="text-uppercase">Our offers        </h2>
+        </header>
+        <div class="row text-center gy-4">
+          <div class="col-lg-4"><img src="{{ asset ('Front/img/global.png')}}" alt="..." width="100">
+            <h3 class="h5">Lorem ipsum dolor</h3>
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur elit sed do eiusmod tempor incididunt labore.</p>
+          </div>
+          <div class="col-lg-4"><img src="{{ asset ('Front/img/astronaut.png')}}" alt="..." width="100">
+            <h3 class="h5">Lorem ipsum dolor</h3>
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur elit sed do eiusmod tempor incididunt labore.</p>
+          </div>
+          <div class="col-lg-4"><img src="{{ asset ('Front/img/travel.png')}}" alt="..." width="100">
+            <h3 class="h5">Special events</h3>
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur elit sed do eiusmod tempor incididunt labore.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="containerreclam">
+    <div class="cardreclam">
+        <div class="formreclam">
+            <h3>Let's Talk</h3> <i class="fa fa-share-alt" id="share"></i>
+            <p>Fill in this form or send us an e-mail with your enquiry.</p>
+            <div class="input-text"> <input type="text" required="required"> <span>Name</span> </div>
+            <div class="input-text"> <input type="text" required="required"> <span>E-mail</span> </div>
+            <div class="text-area"> <textarea required="required"></textarea> <span>Message</span> </div>
+            <div class="buttonreclam"> <button>Submit</button> </div>
+            <div class="lastreclam"> <i class="fa fa-phone"></i>
+                <p>+91-202-555-0137</p> <i class="fa fa-map-marker"></i>
+                <p>2710 Frosty Lane,NY</p>
+            </div>
+            <div class="socialreclam"> <i class="fa fa-facebook-square"></i> <i class="fa fa-instagram"></i> <i class="fa fa-linkedin-square"></i> <i class="fa fa-dribbble"></i> </div>
+        </div>
+    </div>
+</div>
+     {% endblock %}
+{% block javascripts %}
+<script>
+     var share=document.querySelector("#share");
+var social=document.querySelector(".social");
+var inputs=document.querySelectorAll("input");
+var textarea=document.querySelectorAll("textarea");
+share.addEventListener('click',function(){
+
+social.classList.toggle('socialshow');
+inputs.forEach(e => {
+e.classList.toggle('wide');
+});
+textarea.forEach(e => {
+e.classList.toggle('wide');
+});
+});
+</script>
+  {% endblock %}
